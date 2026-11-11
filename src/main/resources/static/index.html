@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gestão de Chamados</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/app.js" defer></script>
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">D</div>
+            <div>
+                <h2>DAS</h2>
+                <span>Gestão de Chamados</span>
+            </div>
+        </div>
+
+        <p class="menu-label">MENU PRINCIPAL</p>
+
+        <nav>
+            <button class="nav-item active" data-view="dashboard">
+                <span>▦</span> Dashboard
+            </button>
+
+            <button class="nav-item" data-view="chamados">
+                <span>▤</span> Chamados
+            </button>
+
+            <button class="nav-item" data-view="clientes">
+                <span>♙</span> Clientes
+            </button>
+
+            <button class="nav-item" data-view="tecnicos">
+                <span>⚙</span> Técnicos
+            </button>
+
+            <button class="nav-item" data-view="categorias">
+                <span>▧</span> Categorias
+            </button>
+        </nav>
+
+        <div class="sidebar-footer">
+            Sistema de Atendimento
+            <small>Projeto DAS</small>
+        </div>
+
+    </aside>
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <span class="breadcrumb">DAS / <span id="breadcrumb">Dashboard</span></span>
+            </div>
+
+            <div class="user-info">
+                <div class="avatar">A</div>
+                <span>Administrador</span>
+            </div>
+        </header>
+
+
+        <div class="page-content">
+
+            <div class="page-heading">
+                <div>
+                    <h1 id="page-title">Dashboard</h1>
+                    <p id="page-description">
+                        Acompanhe os chamados e a operação do sistema.
+                    </p>
+                </div>
+
+                <button class="btn-primary" id="new-button">
+                    + Novo chamado
+                </button>
+            </div>
+
+
+            <!-- DASHBOARD -->
+            <section id="dashboard-view">
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+                        <span>Total de chamados</span>
+                        <h2 id="total-chamados">0</h2>
+                    </div>
+
+                    <div class="stat-card">
+                        <span>Abertos</span>
+                        <h2 id="total-abertos">0</h2>
+                    </div>
+
+                    <div class="stat-card">
+                        <span>Em atendimento</span>
+                        <h2 id="total-atendimento">0</h2>
+                    </div>
+
+                    <div class="stat-card">
+                        <span>Fechados</span>
+                        <h2 id="total-fechados">0</h2>
+                    </div>
+
+                </div>
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h2>Chamados recentes</h2>
+
+                        <button class="btn-outline" data-go="chamados">
+                            Ver todos
+                        </button>
+                    </div>
+
+                    <div id="recent-table"></div>
+                </div>
+
+            </section>
+
+
+            <!-- LISTAGEM DE REGISTROS -->
+            <section id="content-view" hidden>
+
+                <div class="panel">
+
+                    <div class="panel-heading">
+                        <h2 id="table-title">Registros</h2>
+
+                        <input
+                            type="search"
+                            id="search-input"
+                            placeholder="Pesquisar..."
+                        >
+                    </div>
+
+                    <div id="table-container"></div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- MODAL PARA CADASTROS E EDIÇÕES -->
+<div class="modal-overlay" id="modal" hidden>
+
+    <div class="modal">
+
+        <div class="modal-header">
+            <h2 id="modal-title">Novo registro</h2>
+            <button class="close-button" id="close-modal">×</button>
+        </div>
+
+        <div id="modal-content"></div>
+
+    </div>
+
+</div>
+
+
+<!-- MENSAGEM DE FEEDBACK -->
+<div id="toast" class="toast"></div>
+
+</body>
+</html>
